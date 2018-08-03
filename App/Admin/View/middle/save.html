@@ -1,0 +1,45 @@
+<extend name="layouts/default" />
+<block name="title"><title>添加二级目录</title></block>
+<block name="content">
+	<div class="crumb-wrap">
+        <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin/design/">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="/jscss/admin/design/">二级栏目</a><span class="crumb-step">&gt;</span><span>修改二级栏目</span></div>
+    </div>
+
+    <div class="result-wrap">
+            <div class="result-content">
+                <form action="{:U('/admin/MiddleCate/saveAct')}" method="post" id="myform" name="myform" enctype="multipart/form-data">
+                    <table class="insert-tab" width="100%">
+                        <tbody>
+                        <input type="hidden" name="id" value="{$mcate['id']}">
+                        <input type="hidden" name="created_at" value="{$mcate['created_at']}">
+                        <tr>
+                            <th width="120"><i class="require-red">*</i>一级目录：</th>
+                            <td>
+                                <select name="hight_id" id="catid" class="required">
+                                    <option value="">请选择一级目录</option>
+                                    <foreach name="hcates" item="hcate">
+                                    <option value="{$hcate['id']}" <if condition="$hcate['id'] eq $mcate['id']">selected</if>>{$hcate['name']}</option>
+                                    </foreach>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>二级栏目名称：</th>
+                            <td>
+                                <input class="common-text required" id="title" name="name" size="50" value="{$mcate['name']}" type="text" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>
+                                <input class="btn btn-primary btn6 mr10" value="修改" type="submit">
+                                <input class="btn btn6" onClick="history.go(-1)" value="返回" type="button">
+                            </td>
+                        </tr>
+                        </tbody></table>
+                </form>
+            </div>
+        </div>
+
+
+</block>

@@ -1,0 +1,78 @@
+<extend name="layouts/default" />
+<block name="title"><title>添加三级目录</title></block>
+<block name="content">
+	<div class="crumb-wrap">
+        <div class="crumb-list"><i class="icon-font"></i><a href="">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="">三级栏目</a><span class="crumb-step">&gt;</span><span>修改三级栏目</span></div>
+    </div>
+
+    <div class="result-wrap">        
+            <div class="result-content">
+                <form action="{:U('/admin/ThreeCate/saveAct')}" method="post" id="myform" name="myform" enctype="multipart/form-data">
+                    <table class="insert-tab" width="100%">
+                        <tbody>
+                            <input type="hidden" name="id" value="{$tcate['id']}">
+                            <input type="hidden" name="created_at" value="{$tcate['created_at']}">
+                        <tr>
+                            <th width="120"><i class="require-red">*</i>一级目录：</th>
+                            <td>
+                                <select name="hight_id" id="hight" class="required" required="required">
+                                    <option value="">请选择一级目录</option>
+                                    <foreach name="hcates" item="hcate">
+                                    <option value="{$hcate['id']}" <if condition="$hcate['id'] eq $tcate['hight_id']">selected</if>>{$hcate['name']}</option>
+                                    </foreach>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th width="120"><i class="require-red">*</i>二级目录：</th>
+                            <td>
+                                <select name="middle_id" id="middle" class="required" required="required">
+                                    <option value="">请选择二级目录</option>
+                                    <foreach name="mcates" item="mcate">
+                                        <option value="{$mcate['id']}" <if condition="$mcate['id'] eq $tcate['middle_id']">selected</if>>{$mcate['name']}</option>
+                                    </foreach>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>三级栏目名称：</th>
+                            <td>
+                                <input class="common-text required" id="title" name="name" size="50" value="{$tcate['name']}" type="text" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>
+                                <input class="btn btn-primary btn6 mr10" value="提交" type="submit">
+                                <input class="btn btn6" onClick="history.go(-1)" value="返回" type="button">
+                            </td>
+                        </tr>
+                        </tbody></table>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $("#hight").change(function(){
+                var hight_id = $("#hight").val();
+                $.ajax({
+                    url:'__ROOT__/index.php/admin/ThreeCate/getMiddleCate',
+                    type:'POST',
+                    data:{'hight_id':hight_id},
+                    dataType:'html',
+                    success:function(data){
+                        $("#middle").html(data);
+                    }
+                });
+            })
+
+            $("input[type='submit']").click(function(){
+                var middle_id = $('#middle').val();
+                if(middle_id === '0'){
+                    alert('二级目录不能为空');
+                    return false;
+                }
+            })
+
+        </script>
+</block>

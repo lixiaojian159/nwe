@@ -1,0 +1,55 @@
+<extend name="layouts/default" />
+<block name="title"><title>一级目录</title></block>
+<block name="content">
+    <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">二级目录</span></div>
+    </div>
+    <div class="result-wrap">
+        <form name="myform" id="myform" method="post" action="">
+            <div class="result-title">
+                <div class="result-list">
+                    <a href="{:U('admin/cate/index')}">
+                        一级栏目 
+                    </a>
+                    <a href="{:U('admin/cate/add')}"><i class="icon-font"></i>新增</a>
+                    <a href="{:U('admin/MiddleCate/index')}">
+                        二级栏目 
+                    </a>
+                    <a href="{:U('admin/MiddleCate/add')}"><i class="icon-font"></i>新增</a>
+                    <a href="{:U('admin/ThreeCate/index')}">
+                        三级栏目 
+                    </a>
+                    <a href="{:U('admin/ThreeCate/add')}"><i class="icon-font"></i>新增</a>
+                </div>
+            </div>
+            <div class="result-content">
+                <table class="result-tab" width="100%">
+                    <tr>
+                        <th>ID</th>
+                        <th>一级目录名称</th>
+                        <th>二级目录名称</th>
+                        <th>发布人</th>
+                        <th>添加时间</th>
+                        <th>更新时间</th>
+                        <th>操作</th>
+                    </tr>
+                    <foreach name="mcates" item="mcate">
+                    <tr>
+                        <td>{$mcate['id']}</td>
+                        <td title="发哥经典"><a target="_blank" href="#" title="发哥经典">{$mcate['hight_id']|getHightCate}</a></td>
+                         <td title="发哥经典"><a target="_blank" href="#" title="发哥经典">{$mcate['name']}</a></td>
+                        <td>admin</td>
+                        <td>{$mcate['created_at']|date="Y-m-d H:i:s",###}</td>
+                        <td>{$mcate['updated_at']|date="Y-m-d H:i:s",###}</td>
+                        <td>
+                            <a class="link-update" href="{:U('Admin/MiddleCate/save',[ 'id'=>$mcate['id'] ])}">修改</a>
+                            <a class="link-del" href="{:U('Admin/MiddleCate/del',[ 'id'=>$mcate['id'] ])}">删除</a>
+                        </td>
+                    </tr>
+                    </foreach>
+                </table>
+                <div class="list-page"><!--分页--></div>
+            </div>
+        </form>
+    </div>
+</block>
