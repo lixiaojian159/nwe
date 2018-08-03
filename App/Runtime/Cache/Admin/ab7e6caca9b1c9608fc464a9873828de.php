@@ -57,7 +57,7 @@
 
     
     <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">一级目录</span></div>
+            <div class="crumb-list"><i class="icon-font"></i><a href="<?php echo U('admin/index/index');?>">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">三级目录</span></div>
     </div>
     <div class="result-wrap">
         <form name="myform" id="myform" method="post" action="">

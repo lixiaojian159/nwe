@@ -2,10 +2,10 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>一级目录</title>
-    <link rel="stylesheet" type="text/css" href="/www/nwe/Public/admin/css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="/www/nwe/Public/admin/css/main.css"/>
-    <script type="text/javascript" src="/www/nwe/Public/admin/js/jquery.js" ></script>
+    <title>二级目录</title>
+    <link rel="stylesheet" type="text/css" href="/nwe/Public/admin/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/nwe/Public/admin/css/main.css"/>
+    <script type="text/javascript" src="/nwe/Public/admin/js/jquery.js" ></script>
 </head>
 
 <body>
@@ -43,7 +43,7 @@
                         <li>
                             <a href="<?php echo U('admin/cate/index');?>"><i class="icon-font">&#xe008;</i>目录管理</a>
                         </li>
-                        <li><a href="design.html"><i class="icon-font">&#xe004;</i>留言管理</a></li>
+                        <li><a href="design.html"><i class="icon-font">&#xe004;</i>文章管理</a></li>
                         <li><a href="design.html"><i class="icon-font">&#xe012;</i>评论管理</a></li>
                         <li><a href="design.html"><i class="icon-font">&#xe052;</i>友情链接</a></li>
                         <li><a href="design.html"><i class="icon-font">&#xe033;</i>广告管理</a></li>
@@ -57,7 +57,7 @@
 
     
     <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">二级目录</span></div>
+            <div class="crumb-list"><i class="icon-font"></i><a href="<?php echo U('admin/index/index');?>">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">二级目录</span></div>
     </div>
     <div class="result-wrap">
         <form name="myform" id="myform" method="post" action="">

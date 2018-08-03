@@ -57,7 +57,7 @@
 
     
 	<div class="crumb-wrap">
-        <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin/design/">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="/jscss/admin/design/">三级栏目</a><span class="crumb-step">&gt;</span><span>添加三级栏目</span></div>
+        <div class="crumb-list"><i class="icon-font"></i><a href="<?php echo U('admin/index/index');?>">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="<?php echo U('admin/ThreeCate/index');?>">三级栏目</a><span class="crumb-step">&gt;</span><span>添加三级栏目</span></div>
     </div>
 
     <div class="result-wrap">        
